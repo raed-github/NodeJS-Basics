@@ -1,6 +1,7 @@
 # NodeJS-Basics
 
 
+
 ### Creating asynchronous function using node js
 To create asynchronous, non-blocking functions in Node.js, you can use callbacks, promises, or async/await. Here's an example of how to use callbacks:
 #### 1- create asynchronous using Callback
@@ -70,12 +71,53 @@ function doSyncTask() {
   return 'Data from sync task';
 }
 ```
-
+---
 ### What is package.json?
 It is basically the manifest file that contains the metadata of the project where we define the properties of a package.
 
+---
 ### What do you understand by Event-driven programming?
+Event-driven programming is a programming paradigm that is based on the concept of events and event handlers. In event-driven programming, the flow of the program is determined by events that occur at runtime, such as user input, system events, or messages from other programs.
 
+In event-driven programming, the program is designed to respond to events as they occur, rather than executing a predefined sequence of instructions. This is achieved by defining event handlers, which are functions that are executed in response to specific events.
+
+Event-driven programming is commonly used in graphical user interface (GUI) programming, web development, and networking applications. In these applications, events such as mouse clicks, button presses, or network messages trigger actions or updates in the program.
+
+The main advantages of event-driven programming are:
+
+1. Responsiveness: Event-driven programs can respond quickly to user input or external events, making them suitable for real-time applications.
+
+2. Flexibility: Event-driven programs can handle a wide range of events and can be easily modified to add or remove event handlers.
+
+3. Scalability: Event-driven programs can be designed to handle large numbers of events and can be easily distributed across multiple processors or machines.
+
+4. Modularity: Event-driven programs are often modular, with different components responsible for handling different events. This makes the program easier to understand, modify, and maintain.
+
+Overall, event-driven programming is a powerful paradigm that has become increasingly popular in modern software development.
+
+---
+### What is an Event loop in Node.js and how does it work?
+In Node.js, the event loop is a fundamental part of its architecture that allows for non-blocking I/O operations. The event loop is responsible for handling and dispatching events that occur in the Node.js runtime environment.
+
+When a Node.js application starts, it enters the event loop, which is a continuous loop that waits for events to occur. When an event occurs, such as a user request or a timer expiring, the event loop dispatches the event to the appropriate event handler.
+
+The event loop in Node.js works in the following way:
+
+1. The Node.js runtime environment starts and enters the event loop.
+
+2. The event loop waits for events to occur, such as incoming requests or timers expiring.
+
+3. When an event occurs, the event loop dispatches the event to the appropriate event handler.
+
+4. The event handler processes the event, which may involve executing a callback function, performing I/O operations, or sending a response.
+
+5. After the event handler completes its work, the event loop waits for more events to occur.
+
+The event loop in Node.js is designed to be non-blocking, which means that it does not block the execution of other code while waiting for I/O operations to complete. Instead, it uses callbacks and asynchronous functions to allow other code to continue executing while waiting for I/O operations to complete.
+
+Overall, the event loop in Node.js is a critical component of its architecture that allows for high-performance, non-blocking I/O operations.
+
+---
 ### List down some tasks which should be done asynchronously using the event loop?
 In general, any task that involves I/O operations, network requests, or other operations that may take an unpredictable amount of time should be done asynchronously using the event loop in Node.js. Here are some common examples of tasks that should be done asynchronously:
 1. Reading or writing files from disk
@@ -90,6 +132,7 @@ In general, any task that involves I/O operations, network requests, or other op
 
 By performing these tasks asynchronously using the event loop, Node.js can continue to handle other requests and events while waiting for the asynchronous tasks to complete, improving the overall performance and scalability of the application.
 
+---
 ### What is an error-first callback in Node.js?
 In Node.js, an error-first callback is a common pattern used to handle errors and data returned from asynchronous functions. This pattern is used to ensure that any errors that occur during the execution of an asynchronous function are properly handled and reported to the calling code.
 
@@ -104,7 +147,7 @@ function readFile(path, callback) {
   });
 }
 ```
-
+---
 ### Explain the purpose of module.exports?
 In Node.js, `module.exports` is a special object that is included in every JavaScript file in a Node.js application. The `module.exports` object is used to define what should be exported from a module, making it available for other modules to require and use.
 
@@ -122,7 +165,7 @@ const add = require('./add');
 
 console.log(add(2, 3)); // Output: 5
 ```
-
+---
 ### What do you understand by callback hell?
 Callback hell is a term used to describe the situation where multiple nested callbacks are used in asynchronous JavaScript code, making the code difficult to read, understand, and maintain.
 
@@ -156,6 +199,7 @@ fs.readFile('file1.txt', function(err, data) {
 ```
 To avoid callback hell, developers can use several techniques, such as using `promises` or `async/await functions`, which provide a more readable and maintainable way to handle asynchronous code. By using these techniques, developers can write asynchronous code that is easier to read, understand, and maintain, and avoid the pitfalls of callback hell.
 
+---
 ### Explain the concept of middleware in Node.js?
 1-Middleware is a concept in Node.js that refers to a function or a series of functions that are executed sequentially in the request-response cycle of a web application. 
 
@@ -178,6 +222,7 @@ Middleware functions can be used for a wide range of tasks, such as:
 
 Overall, middleware is a powerful concept in Node.js that provides developers with a flexible and modular way to build web applications. By using middleware functions, developers can break down complex application logic into smaller, more manageable pieces, and easily add or remove functionality as needed.
 
+---
 ### Explain the concept of URL module
 
 The URL module in Node.js is a built-in module that provides methods for parsing and formatting URLs. It allows developers to easily work with URLs in Node.js applications.
@@ -219,7 +264,7 @@ console.log(urlObject.hash); // '#fragment'
 const formattedUrl = url.format(urlObject);
 console.log(formattedUrl); // 'https://www.example.com/path/to/page?param1=value1¶m2=value2#fragment'
 ```
-
+---
 ### what is a control flow function and how does it work
 
 A control flow function is a type of function that allows you to manage the order in which asynchronous operations are executed in Node.js. These functions provide a way to handle multiple asynchronous operations in a sequential or parallel manner, depending on the requirements of the application.
@@ -270,6 +315,7 @@ In this example, we have three asynchronous tasks that are executed in sequence 
 
 The final callback function is called once all three tasks have completed, and it receives either an error object or the final result of the sequence of tasks.
 
+---
 ### What is async.queue?
 `async.queue` is a function provided by the Async.js library in Node.js that creates a queue for executing asynchronous tasks. It allows you to limit the number of concurrent tasks that are executed at any given time, which can be useful for managing resources and preventing your application from becoming overwhelmed.
 
@@ -304,6 +350,7 @@ In this example, we create a queue with a concurrency of 2, meaning that at most
 
 The `async.queue` function also provides several other methods for managing the queue, such as `pause`, `resume`, and `length`. Additionally, you can pass an optional callback function to `async.queue` that will be called when all tasks in the queue have been completed.
 
+---
 ### List down the two arguments that async.queue takes as input?
 Below are the two arguments that async.queue takes as input:
 
@@ -311,6 +358,7 @@ Below are the two arguments that async.queue takes as input:
 
 2-Concurrency Value
 
+---
 ### Differentiate between spawn() and fork() methods in Node.js? 
 Both `spawn()` and `fork()` are methods provided by the `child_process` module in Node.js, but they are used for different purposes.
 
@@ -333,6 +381,7 @@ Here, `modulePath` is the path to the module to be executed, `args` is an array 
 
 In summary, the key difference between `spawn()` and `fork()` is that `spawn()` is used to create a new child process and execute a command, while `fork()` is used to create a new Node.js process and execute a module. Additionally, `fork()` allows for IPC communication between the parent and child processes, while `spawn()` does not.
 
+---
 ### What do you understand by global objects in Node.js?
 
 Global objects in Node.js are objects that are available in all modules and can be accessed without requiring them explicitly. These objects can be used to perform various tasks such as interacting with the file system, managing the network, managing the process, and more. Some of the commonly used global objects in Node.js include:
@@ -353,6 +402,7 @@ Global objects in Node.js are objects that are available in all modules and can 
 
 It is important to note that while these objects are available globally, it is generally considered best practice to only use the ones that are necessary for a particular module, and to avoid polluting the global namespace with unnecessary variables and functions.
 
+---
 ### how to create a global object
 
 To create a global object in Node.js, you can add the object to the `global` object. The `global` object is a special object that is available in all modules and can be used to define global variables and functions.
@@ -372,6 +422,7 @@ In this example, we define a global object called `myObject` and add a property 
 
 It's important to note that while global objects can be useful in some cases, overuse of global objects can lead to code that is difficult to maintain and debug. It's generally considered best practice to limit the use of global objects and instead pass objects and variables between modules as function arguments or module exports.
 
+---
 ### Explain the purpose of ExpressJS package?
 
 ExpressJS is a popular Node.js web application framework that provides a robust set of features for building web applications and APIs. The purpose of the ExpressJS package is to simplify the process of building web applications by providing a set of tools and utilities that handle common web development tasks, such as routing, middleware, and templating.
@@ -388,6 +439,7 @@ Some of the key features of the ExpressJS package include:
 
 5. Built-in security: ExpressJS provides a set of built-in security features that help protect web applications from common security threats, such as cross-site scripting (XSS) and cross-site request forgery (CSRF).
 
+---
 ### Differentiate between process.nextTick() and setImmediate()?
 Both `process.nextTick()` and `setImmediate()` are used in Node.js for scheduling callbacks to be executed in the next iteration of the event loop. However, there are some differences in the way they work:
 
@@ -433,6 +485,7 @@ setImmediate
 ```
 As we can see, the `process.nextTick()` callback is executed immediately after the `example()` function completes, before the event loop continues. The `setImmediate()` callback, on the other hand, is executed in the next iteration of the event loop, after any I/O events that are already in the queue.
 
+---
 ### Explain the usage of a buffer class in Node.js?
 Buffer class in Node.js is used for storing the raw data in a similar manner of an array of integers.
 
@@ -458,6 +511,7 @@ Once you have a buffer, you can manipulate it using methods such as buf.slice(),
 
 Overall, the Buffer class is an essential tool for handling binary data in Node.js, and is used extensively in many different types of applications.
 
+---
 ### How does Node.js handle the child threads?
 Node.js is a single-threaded runtime environment, which means it can only execute one task at a time. However, it provides a way to handle multiple tasks simultaneously by using child threads. Node.js uses the `child_process` module to create and manage child threads.
 
@@ -517,6 +571,7 @@ In the child process, we listen for data events from the parent process and send
 
 When you run the `parent.js` file, it will spawn a new child process running the `child.js` file. The parent process will send a message to the child process and listen for a response. The child process will receive the message, send a response back to the parent process, and then exit. Finally, the parent process will log the exit code of the child process.
 
+---
 ### What is a stream in Node.js along with its various types. 
 
 In Node.js, a stream represents a sequence of data that can be read from or written to sequentially. Streams provide an efficient way to handle large amounts of data by breaking it up into smaller chunks and processing it incrementally.
@@ -554,6 +609,7 @@ stream.on('error', (err) => {
 
 In this example, we create a readable stream using the `createReadStream()` method of the `fs` module. We specify the file to read and the encoding of the data. We listen for the `data` event to receive new data chunks, the `end` event to indicate the end of the stream, and the `error` event to handle any errors that may occur.
 
+---
 ### What is Event Emitter in Node.js and provide example?
 EventEmitter is a module in Node.js that provides a way to handle and emit events. It is a core module that allows objects to emit and listen to events. It is commonly used for building scalable and event-driven applications.
 
@@ -575,6 +631,7 @@ myEmitter.emit('greet');
 ```
 In the above example, we first import the `events` module and create a new `EventEmitter` object. Then, we define an event listener for the `greet` event which simply logs a message to the console. Finally, we emit the `greet` event using the `emit` method, which triggers the event listener and logs the message to the console.
 
+---
 ### Event Emitter vs RabbitMQ
 EventEmitter is a built-in module in Node.js and is suitable for building small to medium-sized applications that require simple event-driven communication between different parts of the application. EventEmitter is easy to use and does not require any additional setup or configuration.
 
@@ -583,4 +640,3 @@ On the other hand, RabbitMQ is a message broker that provides a more robust and 
 If your application requires a more complex messaging system with high throughput and reliability, RabbitMQ may be a better choice. However, if your application has simple messaging requirements, EventEmitter may be sufficient and easier to implement.
 
 In general, if your application is small and does not require complex messaging features, EventEmitter is a good choice. If your application is larger and requires more complex messaging features, RabbitMQ may be a better choice.
-
